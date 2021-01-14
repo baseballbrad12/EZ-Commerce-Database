@@ -4,7 +4,7 @@ const { Category, Product } = require('../../models');
 // The `/api/categories` endpoint
 
 //Routing Categories model by All categories
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const categoryData = await Category.findAll({
       include: [Product]
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 //Routing Categories model by ID
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const categoryData = await Category.findAll({
       where: {
@@ -58,7 +58,7 @@ router.put('/:id', (req, res) => {
 });
 
 //Delete category by ID
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const categoryData = await Category.destroy({
       where: {

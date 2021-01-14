@@ -4,7 +4,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 // The `/api/tags` endpoint
 
 //Route Tags model by all Tags
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const tagData = await Tag.findAll({
       include: [Product]
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 //Route Tags Model by ID
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const tagData = await Tag.findAll({
       where: {
@@ -58,7 +58,7 @@ router.put('/:id', (req, res) => {
 });
 
 //Delete Tag by ID
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const tagData = await Tag.destroy({
       where: {
